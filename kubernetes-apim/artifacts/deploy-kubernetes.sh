@@ -55,6 +55,11 @@ kubectl create configmap apim-pubstore-tm-1-axis2 --from-file=../confs/apim-pubs
 kubectl create configmap apim-pubstore-tm-1-datasources --from-file=../confs/apim-pubstore-tm-1/repository/conf/datasources/
 kubectl create configmap apim-pubstore-tm-1-tomcat --from-file=../confs/apim-pubstore-tm-1/repository/conf/tomcat/
 
+kubectl create configmap apim-is-km-conf --from-file=../confs/apim-is-as-km/repository/conf/
+kubectl create configmap apim-is-km-axis2 --from-file=../confs/apim-is-as-km/repository/conf/axis2/
+kubectl create configmap apim-is-km-datasources --from-file=../confs/apim-is-as-km/repository/conf/datasources/
+kubectl create configmap apim-is-km-tomcat --from-file=../confs/apim-is-as-km/repository/conf/tomcat/
+
 # databases
 echo 'deploying databases ...'
 kubectl create -f rdbms/rdbms-persistent-volume-claim.yaml
@@ -72,8 +77,12 @@ kubectl create -f apim-gateway/wso2apim-sv-service.yaml
 kubectl create -f apim-gateway/wso2apim-pt-service.yaml
 kubectl create -f apim-gateway/wso2apim-manager-worker-service.yaml
 
-kubectl create -f apim-km/wso2apim-km-service.yaml
-kubectl create -f apim-km/wso2apim-key-manager-service.yaml
+#kubectl create -f apim-km/wso2apim-km-service.yaml
+#kubectl create -f apim-km/wso2apim-key-manager-service.yaml
+kubectl create -f apim-is-as-km/wso2apim-is-as-km-service.yaml
+kubectl create -f apim-is-as-km/wso2apim-is-as-key-manager-service.yaml
+
+
 
 kubectl create -f apim-pubstore-tm/wso2apim-tm1-volume-claim.yaml
 kubectl create -f apim-gateway/wso2apim-mgt-volume-claim.yaml
@@ -89,9 +98,12 @@ echo 'deploying apim pubstore-tm-1 ...'
 kubectl create -f apim-pubstore-tm/wso2apim-pubstore-tm-1-deployment.yaml
 
 # KM
+#sleep 60s
+#echo 'deploying apim key manager...'
+#kubectl create -f apim-km/wso2apim-km-deployment.yaml
 sleep 60s
-echo 'deploying apim key manager...'
-kubectl create -f apim-km/wso2apim-km-deployment.yaml
+echo 'deploying apim is as key manager...'
+kubectl create -f apim-is-as-km/wso2apim-is-as-km-deployment.yaml
 
 # GW
 sleep 60s

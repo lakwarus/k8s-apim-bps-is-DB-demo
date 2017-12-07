@@ -63,3 +63,10 @@ kubectl delete configmaps apim-pubstore-tm-2-identity
 kubectl delete configmaps apim-pubstore-tm-2-axis2
 kubectl delete configmaps apim-pubstore-tm-2-datasources
 kubectl delete configmaps apim-pubstore-tm-2-tomcat
+
+kubectl delete configmaps apim-is-km-conf
+kubectl delete configmaps apim-is-km-axis2
+kubectl delete configmaps apim-is-km-datasources
+kubectl delete configmaps apim-is-km-tomcat
+
+
