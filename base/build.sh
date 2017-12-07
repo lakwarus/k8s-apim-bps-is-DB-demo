@@ -38,6 +38,6 @@ function docker_build() {
     fi
 }
 
-docker_build docker.wso2.com/wso2am-kubernetes:2.1.0-1510753210486 $apim_dir
-#docker_build docker.wso2.com/wso2am-analytics-kubernetes:2.1.0 $analytics_dir
-#docker_build docker.wso2.com/apim-rdbms-kubernetes:2.1.0 $mysql_dir
+docker_build lakwarus/wso2am-kubernetes:2.1.0-1510753210486 $apim_dir
+#docker_build lakwarus/wso2am-analytics-kubernetes:2.1.0 $analytics_dir
+#docker_build lakwarus/apim-rdbms-kubernetes:2.1.0 $mysql_dir

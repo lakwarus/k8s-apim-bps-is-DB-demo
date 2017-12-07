@@ -29,7 +29,7 @@ spec:
         tier: apim-rdbms
     spec:
       containers:
-      - image: lakwarus/apim-rdbms-kubernetes:2.1.0
+      - image: lakwarus/apim-rdbms-kubernetes:2.1.0-v2
         name: apim-rdbms
         imagePullPolicy: IfNotPresent
         env:
