@@ -98,9 +98,6 @@ echo 'deploying apim pubstore-tm-1 ...'
 kubectl create -f apim-pubstore-tm/wso2apim-pubstore-tm-1-deployment.yaml
 
 # KM
-#sleep 60s
-#echo 'deploying apim key manager...'
-#kubectl create -f apim-km/wso2apim-km-deployment.yaml
 sleep 60s
 echo 'deploying apim is as key manager...'
 kubectl create -f apim-is-as-km/wso2apim-is-as-km-deployment.yaml

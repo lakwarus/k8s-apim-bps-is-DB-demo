@@ -20,5 +20,6 @@ FROM mysql:5.7.19
 
 MAINTAINER WSO2 Docker Maintainers "dev@wso2.org"
 
+COPY mysqld.cnf /etc/mysql/mysql.conf.d/
 # COPY MYSQL scripts for database creation.
 COPY scripts/* /docker-entrypoint-initdb.d/
