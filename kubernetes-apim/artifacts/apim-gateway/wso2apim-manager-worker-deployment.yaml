@@ -33,7 +33,7 @@ spec:
     spec:
       containers:
       -
-        image: lakwarus/wso2am-kubernetes:2.1.0
+        image: lakwarus/wso2am-kubernetes:2.1.0-v3
         name: wso2apim
         imagePullPolicy: IfNotPresent
         ports:

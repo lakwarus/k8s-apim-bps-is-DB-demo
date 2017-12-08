@@ -37,6 +37,10 @@ ARG DNS_JAVA=dnsjava-2.1.8.jar
 ARG KUBERNETES_MEMBERSHIP_SCHEME=kubernetes-membership-scheme-1.0.*.jar
 ARG CLIENT_TRUSTSTORE=client-truststore.jks
 ARG WSO2CARBON_JKS=wso2carbon.jks
+ARG WSO2WF_JAR=multistep_subs_workflow-1.0.jar
+ARG WSO2LOGIN_JAR=org.wso2.handler.synapse-1.0-SNAPSHOT.jar
+ARG CUSTOM_IN_SQ=global_in_sequence.xml
+ARG CUSTOM_OUT_SQ=global_out_sequence.xml
 
 RUN apt-get update \
 	&& apt-get install -y --no-install-recommends --no-install-suggests \
@@ -53,15 +57,17 @@ RUN useradd --system --uid ${USER_ID} --gid 0 --create-home --home-dir ${USER_HO
 # copy the jdk and product packs
 COPY ${FILES}/${WSO2_SERVER_PACK} ${STARTUP_SCRIPT} ${FILES}/${JDK_ARCHIVE} ${FILES}/${JDBC_DRIVER} \
     ${FILES}/${DNS_JAVA} ${FILES}/${KUBERNETES_MEMBERSHIP_SCHEME} ${FILES}/${CLIENT_TRUSTSTORE} \
-    ${FILES}/${WSO2CARBON_JKS} sudoers change_ownership.sh ${USER_HOME}/
+    ${FILES}/${WSO2CARBON_JKS} sudoers change_ownership.sh ${FILES}/${WSO2WF_JAR} ${FILES}/${WSO2LOGIN_JAR} ${FILES}/${CUSTOM_IN_SQ} ${FILES}/${CUSTOM_OUT_SQ} ${USER_HOME}/
 
 # and creates the init script
 RUN unzip -q ${USER_HOME}/${WSO2_SERVER_PACK} -d ${USER_HOME}/ \
         && mkdir -p ${JAVA_HOME} \
         && tar -xf ${USER_HOME}/${JDK_ARCHIVE} -C ${JAVA_HOME} --strip-components=1 \
         && mkdir -p ${USER_HOME}/tmp \
-        && cp ${USER_HOME}/${JDBC_DRIVER} ${USER_HOME}/${DNS_JAVA} \
+        && cp ${USER_HOME}/${JDBC_DRIVER} ${USER_HOME}/${DNS_JAVA} ${USER_HOME}/${WSO2WF_JAR} ${USER_HOME}/${WSO2LOGIN_JAR}\
             ${USER_HOME}/${WSO2_SERVER}-${WSO2_SERVER_VERSION}/repository/components/lib/ \
+        && cp ${USER_HOME}/${CUSTOM_IN_SQ} ${USER_HOME}/${CUSTOM_OUT_SQ} \
+            ${USER_HOME}/${WSO2_SERVER}-${WSO2_SERVER_VERSION}/repository/deployment/server/synapse-configs/default/sequences/ \
         && cp ${USER_HOME}/${KUBERNETES_MEMBERSHIP_SCHEME} \
             ${USER_HOME}/${WSO2_SERVER}-${WSO2_SERVER_VERSION}/repository/components/dropins/ \
         && cp ${USER_HOME}/${CLIENT_TRUSTSTORE} \

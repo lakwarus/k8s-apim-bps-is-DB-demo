@@ -101,6 +101,10 @@ if [ -e ${carbon_home}-conf/conf-security ]
  then cp ${carbon_home}-conf/conf-security/* ${carbon_home}/repository/conf/security/
 fi
 
+if [ -e ${carbon_home}-conf/conf-admin-app ]
+ then cp ${carbon_home}-conf/conf-admin-app/* ${carbon_home}/repository/deployment/server/jaggeryapps/admin/site/conf/
+fi
+
 # overwrite localMemberHost element value in axis2.xml with container ip
 export local_docker_ip=$(ip route get 1 | awk '{print $NF;exit}')
 axi2_xml_location=${carbon_home}/repository/conf/axis2/axis2.xml

@@ -115,3 +115,4 @@ kubectl create -f ingresses/nginx-default-http-backend.yaml
 kubectl create -f ingresses/nginx-ingress-controller.yaml
 kubectl create -f ingresses/wso2apim-analytics-ingress.yaml
 kubectl create -f ingresses/wso2apim-ingress.yaml
+kubectl create -f ingresses/wso2is-as-km-ingress.yaml
