@@ -656,13 +656,13 @@
         <EnableQueryParamConditions>false</EnableQueryParamConditions>
     </ThrottlingConfigurations>
     <WorkflowConfigurations>
-        <Enabled>false</Enabled>
-        <ServerUrl>https://localhost:9445/bpmn</ServerUrl>
+        <Enabled>true</Enabled>
+        <ServerUrl>https://wso2ei-bps/bpmn</ServerUrl>
         <ServerUser>${admin.username}</ServerUser>
         <ServerPassword>${admin.password}</ServerPassword>
-        <WorkflowCallbackAPI>https://localhost:${mgt.transport.https.port}/api/am/publisher/v0.10/workflows/update-workflow-status</WorkflowCallbackAPI>
-        <TokenEndPoint>https://localhost:${https.nio.port}/token</TokenEndPoint>
-        <DCREndPoint>https://localhost:${mgt.transport.https.port}/client-registration/v0.10/register</DCREndPoint>
+        <WorkflowCallbackAPI>https://wso2apim/api/am/publisher/v0.11/workflows/update-workflow-status</WorkflowCallbackAPI>
+        <TokenEndPoint>https://https://wso2apim-gw.wso2.svc:8243/token</TokenEndPoint>
+        <DCREndPoint>https://wso2apim/client-registration/v0.11/register</DCREndPoint>
         <DCREndPointUser>${admin.username}</DCREndPointUser>
         <DCREndPointPassword>${admin.password}</DCREndPointPassword>
     </WorkflowConfigurations>
