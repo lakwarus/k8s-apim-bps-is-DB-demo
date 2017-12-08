@@ -319,6 +319,7 @@
     </APIStore>
 
     <APIPublisher>
+	<EnableAccessControl>true</EnableAccessControl>
         <DisplayURL>false</DisplayURL>
         <URL>https://wso2apim/publisher</URL>
         <!-- This parameter specifies enabling the capability of setting API documentation level granular visibility levels.
