@@ -659,12 +659,12 @@
     </ThrottlingConfigurations>
     <WorkflowConfigurations>
         <Enabled>true</Enabled>
-        <ServerUrl>https://wso2ei-bps/bpmn</ServerUrl>
+        <ServerUrl>https://wso2ei-bps.wso2.svc:9445/bpmn</ServerUrl>
         <ServerUser>${admin.username}</ServerUser>
         <ServerPassword>${admin.password}</ServerPassword>
-        <WorkflowCallbackAPI>https://wso2apim/api/am/publisher/v0.11/workflows/update-workflow-status</WorkflowCallbackAPI>
-        <TokenEndPoint>https://https://wso2apim-gw.wso2.svc:8243/token</TokenEndPoint>
-        <DCREndPoint>https://wso2apim/client-registration/v0.11/register</DCREndPoint>
+        <WorkflowCallbackAPI>https://wso2apim.wso2.svc:9443/api/am/publisher/v0.11/workflows/update-workflow-status</WorkflowCallbackAPI>
+        <TokenEndPoint>https://wso2apim-gw.wso2.svc:8243/token</TokenEndPoint>
+        <DCREndPoint>https://wso2apim.wso2.svc:9443/client-registration/v0.11/register</DCREndPoint>
         <DCREndPointUser>${admin.username}</DCREndPointUser>
         <DCREndPointPassword>${admin.password}</DCREndPointPassword>
     </WorkflowConfigurations>
